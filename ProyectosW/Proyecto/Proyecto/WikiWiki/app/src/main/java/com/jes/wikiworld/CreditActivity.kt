@@ -8,27 +8,25 @@ import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
 import com.jes.wikiworld.databinding.ActivityCreditBinding
+import com.jes.wikiworld.databinding.FragmentCreditBinding
 
 class CreditActivity : AppCompatActivity() {
 
-    private lateinit var binding: ActivityCreditBinding
-    private val ARG_USER_NAME = "userName"
+    private var _binding: FragmentCreditBinding? = null
+    private val binding get() = _binding!!
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        binding = ActivityCreditBinding.inflate(layoutInflater)
-        setContentView(binding.root)
+    companion object {
+        const val ARG_USER_NAME = "userName"
 
-        val userName = intent.getStringExtra(ARG_USER_NAME)
-
-        if (savedInstanceState == null) {
-            val fragment = CreditFragment.newInstance(userName ?: "")
-            supportFragmentManager.beginTransaction()
-                .replace(R.id.fragment_container_credit, fragment)
-                .commit()
+        fun newInstance(userName: String): CreditFragment {
+            val fragment = CreditFragment()
+            val args = Bundle().apply {
+                putString(ARG_USER_NAME, userName)
+            }
+            fragment.arguments = args
+            return fragment
         }
     }
-
 
         fun newInstance(userName: String): CreditFragment {
             val fragment = CreditFragment()

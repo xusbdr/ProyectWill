@@ -1,11 +1,10 @@
 package com.jes.wikiworld
 
-import android.icu.text.CaseMap.Title
+import java.io.Serializable
 
 data class Item(
     val id: Int,
-    val name: String,
     val description: String,
-
-)
-
+    val nombre: String,
+    val additionalInfo: String// Campo para almacenar información adicional
+) : Serializable

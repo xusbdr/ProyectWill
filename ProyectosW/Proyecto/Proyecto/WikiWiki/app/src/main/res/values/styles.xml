@@ -1,11 +1,34 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <style name="Letras">
-        <item name="android:textSize">18sp</item> <!-- Tamaño del texto -->
-        <item name="android:textColor">@android:color/black</item> <!-- Color del texto -->
+    <style name="estiloTexto">
+        <item name="android:textColor">@color/colorPrimary</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:fontFamily">fantasy</item>
+    </style>
+
+
+    <style name="estiloTitulo">
+        <item name="android:textColor">@color/customTitleColor</item>
+        <item name="android:textSize">24sp</item>
 
     </style>
+
+
+
+    <style name="CustomButtonStyle" parent="Widget.AppCompat.Button">
+        <item name="android:background">@drawable/formaestilos</item>
+        <item name="android:textColor">@color/customTextColor</item>
+        <item name="android:textSize">25sp</item>
+
+    </style>
+
+
+
+
+
+
+
 
 
 </resources>

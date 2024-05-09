@@ -1,60 +1,68 @@
 package com.jes.wikiworld
 
-import ItemAdapter2
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.jes.wikiworld.Item2
-import com.jes.wikiworld.R
+import com.jes.wikiworld.databinding.FragmentItemListBinding
 
 class ItemListFragment : Fragment() {
 
-    private val favoriteItems = mutableListOf<Item2>()
+    private val favoritos = mutableListOf<Item2>()
+    private lateinit var binding: FragmentItemListBinding
     private lateinit var adapter: ItemAdapter2
     private lateinit var recyclerView: RecyclerView
+
+    private val sharedViewModel: ElviewModel by activityViewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val view = inflater.inflate(R.layout.fragment_item_list, container, false)
-
-        recyclerView = view.findViewById(R.id.favItemListFragment)
-        adapter = ItemAdapter2(favoriteItems)
+        binding = FragmentItemListBinding.inflate(inflater, container, false)
+        recyclerView = binding.recycler
+        adapter = ItemAdapter2(favoritos)
         recyclerView.layoutManager = LinearLayoutManager(requireContext())
         recyclerView.adapter = adapter
 
-        favoriteItems.addAll(getSampleItems())
+        // Habilitar el botón de retroceso en la barra de herramientas
+        val actionBar = (requireActivity() as AppCompatActivity).supportActionBar
+        actionBar?.setDisplayHomeAsUpEnabled(true)
 
-        // Configurar el botón de retroceso
-        val backButton: Button = view.findViewById(R.id.AñadirContenido)
-        backButton.setOnClickListener {
-            requireActivity().onBackPressed()
-        }
-
-        // Configurar el botón para añadir contenido
-        val addContentButton: Button = view.findViewById(R.id.AñadirContenido)
+        // Configurar el botón para añadir contenido a favoritos
+        val addContentButton: Button = binding.Favoritos
         addContentButton.setOnClickListener {
-            // Navegar a otro fragmento (reemplaza R.id.destinationFragment con el ID del fragmento al que deseas navegar)
-            findNavController().navigate(R.id.action_itemListFragment_to_destinationFragment)
+            val selectedItems = adapter.getSelectedItems().toList()
+            sharedViewModel.setSelectedItems(selectedItems)
+
+            val action = ItemListFragmentDirections.actionItemListFragmentToFavItemListFragment()
+            findNavController().navigate(action)
         }
 
-        return view
+        // Si la lista favoritos está vacía, entonces la llenamos con los elementos de muestra
+        if (favoritos.isEmpty()) {
+            favoritos.addAll(getSampleItems())
+            adapter.notifyDataSetChanged()
+        }
+
+        return binding.root
     }
 
     private fun getSampleItems(): List<Item2> {
         return listOf(
-            Item2("Alpinismo", "Descripción del favorito 1", "Rutas Varias 1"),
-            Item2("Running", "Descripción del favorito 2", "Apuntarse a grupos 2"),
-            Item2("Senderismo", "Descripción del favorito 3", "En marcha 3")
+            Item2(1, "Descubre las montañas", "Alpinismo"),
+            Item2(2, "Las mejores pistas", "Running"),
+            Item2(3, "Rutas en familia", "Senderismo"),
+            Item2(4, "Las mejores playas", "Surf"),
+            Item2(5, "MTB o carretera", "Ciclismo")
         )
     }
 }
-

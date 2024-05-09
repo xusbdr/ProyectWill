@@ -19,21 +19,20 @@
         <!-- RecyclerView para mostrar la lista de elementos favoritos -->
 
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/favItemListFragment"
+            android:id="@+id/recycler"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1"
             android:padding="8dp" />
 
         <Button
-            android:id="@+id/AñadirContenido"
+            android:id="@+id/Favoritos"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="16dp"
             android:layout_marginBottom="6dp"
-            android:text="Añadir contenido" />
+            android:text="Añadir a Favoritos" />
 
     </LinearLayout>
 </androidx.cardview.widget.CardView>
-

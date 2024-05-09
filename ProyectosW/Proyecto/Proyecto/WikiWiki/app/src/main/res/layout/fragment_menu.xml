@@ -3,15 +3,15 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/teal"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:background="@color/colorAccent"
     tools:context=".MenuFragment">
 
     <TextView
-        android:id="@+id/welcomeMessage"
+        android:id="@+id/bienvenida"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="¡Hola Usuario!"
+        style="@style/estiloTexto"
         android:textSize="24sp"
         android:textStyle="bold"
         app:layout_constraintTop_toTopOf="parent"
@@ -20,11 +20,26 @@
         android:padding="16dp"/>
 
     <Button
+        style="@style/CustomButtonStyle"
         android:id="@+id/btnSalirMenu"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:text="Navegar Credit"
-        app:layout_constraintTop_toBottomOf="@+id/welcomeMessage"
+        app:layout_constraintTop_toBottomOf="@+id/bienvenida"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginTop="16dp"
+        />
+
+    <Button
+        style="@style/CustomButtonStyle"
+        android:id="@+id/comentarios"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Notas Personales"
+        app:layout_constraintTop_toBottomOf="@+id/btnSalirMenu"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginStart="16dp"
@@ -33,17 +48,18 @@
 
     <Button
         android:id="@+id/btnVolverLogin"
+        style="@style/CustomButtonStyle"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="Salir"
-        app:layout_constraintTop_toBottomOf="@+id/btnSalirMenu"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-
         android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
-        android:layout_marginTop="16dp"/>
+        android:text="Salir"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/comentarios"
+        app:layout_constraintVertical_bias="0.965" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
-
-

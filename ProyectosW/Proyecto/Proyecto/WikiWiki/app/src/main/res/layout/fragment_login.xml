@@ -1,28 +1,75 @@
 <?xml version="1.0" encoding="utf-8"?>
-
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/clMain2"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
-
-    <EditText
-        android:id="@+id/etUsername"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Nombre de usuario"/>
-
-    <Button
-        android:id="@+id/btnLogin"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Iniciar Sesión"/>
+    >
 
     <TextView
-        android:id="@+id/welcomeText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="¡Bienvenido!"
-        android:visibility="gone" />
+        android:id="@+id/Bienvenida"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:text="¡Bienvenido a WikiWorld!"
+        android:textSize="40sp"
+        android:textStyle="bold"
+        android:fontFamily="Letras"
+        app:layout_constraintDimensionRatio="2:1"
+        app:layout_constraintBottom_toTopOf="@+id/image"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginBottom="16dp"
+        style="@style/estiloTitulo"
+        />
 
 
-</LinearLayout>
+    <EditText
+        android:id="@+id/nombre"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:text=""
+        android:hint="Escribe tu Usuario"
+        android:textSize="24sp"
+        app:layout_constraintDimensionRatio="4:1"
+        app:layout_constraintBottom_toTopOf="@+id/boton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginBottom="10dp"
+        style="@style/estiloTexto" />
+
+
+
+
+    <ImageView
+        android:id="@+id/image"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:src="@drawable/wikis"
+        android:scaleType="centerInside"
+        app:layout_constraintDimensionRatio="4:2"
+        app:layout_constraintBottom_toTopOf="@+id/nombre"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Bienvenida"
+        android:layout_marginBottom="16dp"/>
+
+
+
+    <Button
+        android:id="@+id/boton"
+        android:layout_width="350dp"
+        android:layout_height="54dp"
+        android:layout_marginBottom="30dp"
+        android:text="Iniciar Sesión"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintDimensionRatio="2:1"
+        app:layout_constraintEnd_toEndOf="parent"
+
+        style="@style/CustomButtonStyle"
+
+        app:layout_constraintStart_toStartOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -7,29 +7,50 @@
     app:cardCornerRadius="8dp"
     app:cardElevation="4dp">
 
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <EditText
+            android:id="@+id/ruta"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Comentarios Personales"
+            android:focusable="true"
+            android:focusableInTouchMode="true" />
+
+
+    </LinearLayout>
+
+
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
         <!-- RecyclerView para mostrar la lista de comentarios -->
+
+        <!-- Botón flotante para agregar comentario -->
+
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/commentsRecyclerView"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:padding="8dp"/>
+            android:layout_marginTop="40dp"
+            android:padding="28dp" />
 
-        <!-- Botón flotante para agregar comentario -->
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/addCommentButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"
             android:layout_alignParentBottom="true"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="16dp"
-            android:layout_marginEnd="16dp"
-            android:layout_marginBottom="16dp"
-            android:contentDescription="@string/add_comment"
-            android:src="@drawable/boton" />
+            android:layout_marginEnd="173dp"
+            android:layout_marginBottom="41dp"
+
+            android:text="Push" />
+
+
     </RelativeLayout>
 </androidx.cardview.widget.CardView>

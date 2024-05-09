@@ -6,16 +6,15 @@
     xmlns:android="http://schemas.android.com/apk/res/android">
 
 
-<item android:drawable="@color/black"/>
 
 
 
     <item
+
 >
+            <bitmap android:src="@drawable/wikis" />
 
-        <bitmap
 
-            android:src="@drawable/wikis" />
     </item>
 
 

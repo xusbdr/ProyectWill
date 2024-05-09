@@ -2,4 +2,9 @@
 <resources>
     <item name="detailFavItemFragment" type="id" />
     <item name="action_itemListFragment_to_destinationFragment" type="id" />
+    <item name="action_itemListFragment_to_favItemListFragment" type="id" />
+    <item name="action_favItemListFragment_to_mainFragment" type="id" />
+    <item name="action_detailItemFragment_to_itemListFragment" type="id" />
+    <item name="detailItemFragment" type="id" />
+    <item name="action_menuFragment_to_detailFavItemFragment" type="id" />
 </resources>

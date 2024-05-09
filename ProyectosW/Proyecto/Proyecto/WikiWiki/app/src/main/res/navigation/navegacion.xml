@@ -5,25 +5,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/mainFragment">
-
-    <fragment
-        android:id="@+id/mainFragment"
-        android:name="com.jes.wikiworld.MainFragment"
-        android:label="fragment_main"
-        tools:layout="@layout/fragment_main">
-        <action
-            android:id="@+id/action_mainFragment_to_loginFragment"
-            app:destination="@id/loginFragment" />
-    </fragment>
-
-
-
-
-
-
-
-
+    app:startDestination="@id/loginFragment">
 
 
 
@@ -34,11 +16,22 @@
         android:label="fragment_login"
         tools:layout="@layout/fragment_login">
         <action
-            android:id="@+id/action_loginFragment_to_menuFragment"
-            app:destination="@id/menuFragment" />
+            android:id="@+id/action_loginFragment_to_mainFragment"
+            app:destination="@id/mainFragment" />
     </fragment>
 
 
+
+
+    <fragment
+        android:id="@+id/mainFragment"
+        android:name="com.jes.wikiworld.MainFragment"
+        android:label="fragment_main"
+        tools:layout="@layout/fragment_main">
+        <action
+            android:id="@+id/action_mainFragment_to_menuFragment"
+            app:destination="@id/menuFragment" />
+    </fragment>
 
 
 
@@ -51,6 +44,9 @@
         <action
             android:id="@+id/action_menuFragment_to_creditFragment"
             app:destination="@id/creditFragment" />
+        <action
+            android:id="@+id/action_menuFragment_to_detailFavItemFragment"
+            app:destination="@id/detailFavItemFragment" />
     </fragment>
 
 
@@ -66,16 +62,18 @@
 
       <!--     ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,      -->
 
-
     <fragment
         android:id="@+id/itemListFragment"
         android:name="com.jes.wikiworld.ItemListFragment"
         android:label="fragment_item_list"
         tools:layout="@layout/fragment_item_list">
         <action
-            android:id="@+id/action_itemListFragment_to_detailFavItemFragment"
-            app:destination="@id/mainFragment" />
+            android:id="@+id/action_itemListFragment_to_favItemListFragment"
+            app:destination="@id/favItemListFragment"
+            />
     </fragment>
+
+
 
 
 
@@ -86,12 +84,24 @@
         android:label="fragment_fav_item_list"
         tools:layout="@layout/fragment_fav_item_list">
         <action
-            android:id="@+id/action_favItemListFragment_to_detailFavItemFragment"
-            app:destination="@id/detailFavItemFragment" />
+            android:id="@+id/action_favItemListFragment_to_detailItemFragment"
+            app:destination="@id/detailItemFragment" />
     </fragment>
 
 
 
+    <fragment
+        android:id="@+id/detailItemFragment"
+        android:name="com.jes.wikiworld.DetailItemFragment"
+        android:label="fragment_detail_item"
+        tools:layout="@layout/fragment_detail_item" />
+    <action
+        android:id="@+id/action_detailItemFragment_to_mainFragment"
+        app:destination="@id/mainFragment"
+       />
+
+
+    <!--                -->
 
 
 
@@ -104,13 +114,15 @@
 
 
 
-
-
-
-
-
-
-
+    <fragment
+        android:id="@+id/detailFavItemFragment"
+        android:name="com.jes.wikiworld.DetailFavItemFragment"
+        android:label="fragment_detail_fav_item"
+        tools:layout="@layout/fragment_detail_fav_item" />
+    <action
+        android:id="@+id/action_detailFavItemFragment_menuFragment"
+        app:destination="@id/menuFragment"
+        />
 
 
 

@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.jes.wikiworld.databinding.FragmentDetailFavItemBinding
@@ -26,29 +27,39 @@ class DetailFavItemFragment : Fragment() {
         return binding.root
     }
 
+
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        // Configurar RecyclerView y su adaptador
-        comentariosAdapter = ComentariosAdapter(getSampleComments().toMutableList())
+        comentariosAdapter = ComentariosAdapter(mutableListOf())
+
         binding.commentsRecyclerView.apply {
             layoutManager = LinearLayoutManager(requireContext())
             adapter = comentariosAdapter
         }
 
-        // Configurar acción para el botón flotante
+
+        //
+
+
         binding.addCommentButton.setOnClickListener {
-            // Aquí puedes implementar la lógica para añadir un nuevo comentario
-            // Esto puede incluir abrir un cuadro de diálogo, navegar a otra pantalla, etc.
+            val author = binding.ruta.text.toString()
+
+            if (author.isNotEmpty()) { // Verifica si el campo de autor no está vacío
+                val newComment = Comment(author, "") // Crear un nuevo comentario con autor pero sin contenido
+                addComment(newComment)
+
+                binding.ruta.text.clear()
+            } else {
+                Toast.makeText(requireContext(), "Por favor, completa el campo.No puede estar vacio", Toast.LENGTH_SHORT).show()
+            }
         }
     }
 
-    private fun getSampleComments(): List<Comment> {
-        return listOf(
-            Comment("Autor 1", "Contenido del comentario 1"),
-            Comment("Autor 2", "Contenido del comentario 2"),
-            Comment("Autor 3", "Contenido del comentario 3")
-        )
+
+    private fun addComment(comment: Comment) {
+        comentariosAdapter.addComment(comment)
     }
 
     override fun onDestroyView() {

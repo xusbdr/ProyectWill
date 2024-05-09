@@ -1,7 +1,12 @@
 package com.jes.wikiworld
 import java.io.Serializable
 data class Item2(
-    val titulo: String,
+    val id: Int,
     val description: String,
-    val nombre: String
+    val nombre:String,
+
+
+
 ) : Serializable
+
+

@@ -30,7 +30,8 @@ class MainActivity : AppCompatActivity() {
         appBarConfiguration = AppBarConfiguration.Builder(
             R.id.itemListFragment,
             R.id.favItemListFragment,
-            R.id.userInfoText
+            R.id.userInfoText,
+
         ).build()
 
         // Configurar ActionBar con NavController y AppBarConfiguration

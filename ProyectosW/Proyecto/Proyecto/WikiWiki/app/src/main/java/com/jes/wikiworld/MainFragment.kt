@@ -19,8 +19,12 @@ class MainFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         _binding = FragmentMainBinding.inflate(inflater, container, false)
+
         val view = binding.root
         return view
+
+        // Recibir el nombre de usuario desde los argumentos
+        val username = arguments?.getString("username")
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -28,7 +32,7 @@ class MainFragment : Fragment() {
 
         binding.btnGoToCredit.setOnClickListener {
             // Navegar al loginFragment
-            findNavController().navigate(R.id.action_mainFragment_to_loginFragment)
+            findNavController().navigate(R.id.action_mainFragment_to_menuFragment)
         }
     }
 

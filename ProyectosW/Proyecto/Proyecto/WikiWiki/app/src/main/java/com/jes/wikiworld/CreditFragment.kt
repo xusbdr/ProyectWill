@@ -1,6 +1,5 @@
 package com.jes.wikiworld
 
-
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
@@ -11,25 +10,11 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.jes.wikiworld.databinding.FragmentCreditBinding
 
-
 class CreditFragment : Fragment() {
 
 
     private var _binding: FragmentCreditBinding? = null
     private val binding get() = _binding!!
-
-    companion object {
-        private const val ARG_USER_NAME = "userName"
-
-        fun newInstance(userName: String): CreditFragment {
-            val fragment = CreditFragment()
-            val args = Bundle().apply {
-                putString(ARG_USER_NAME, userName)
-            }
-            fragment.arguments = args
-            return fragment
-        }
-    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -38,10 +23,13 @@ class CreditFragment : Fragment() {
         _binding = FragmentCreditBinding.inflate(inflater, container, false)
         val view = binding.root
 
-        val userName = arguments?.getString(ARG_USER_NAME) ?: ""
-        binding.userInfoText.text = "Usuario $userName estás usando la versión 1 de la aplicación"
+        // Obtener el nombre de usuario del Singleton
+        val userName = Singleton.getUserName()
 
+        // Mostrar el nombre de usuario en el TextView
+        binding.nombre.text = "Hola $userName estás usando la versión 1 de la aplicación"
 
+        // Configurar el botón para enviar correo electrónico
         binding.buttonContact.setOnClickListener {
             val subject = "Consulta de la app WikiWorld" // Asunto del correo electrónico
             val message = "Escribe tu mensaje aquí..." // Cuerpo del correo electrónico
@@ -62,10 +50,6 @@ class CreditFragment : Fragment() {
                 Toast.makeText(requireContext(), "No se encontró ninguna aplicación para enviar correo electrónico", Toast.LENGTH_SHORT).show()
             }
         }
-
-
-
-
 
         return view
     }

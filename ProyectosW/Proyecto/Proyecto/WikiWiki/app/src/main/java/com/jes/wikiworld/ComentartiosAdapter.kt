@@ -5,6 +5,7 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 
+
 class ComentariosAdapter(private val comments: MutableList<Comment>) : RecyclerView.Adapter<ComentariosAdapter.CommentViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CommentViewHolder {
@@ -28,15 +29,11 @@ class ComentariosAdapter(private val comments: MutableList<Comment>) : RecyclerV
         fun bind(comment: Comment) {
             authorTextView.text = comment.author
             contentTextView.text = comment.content
-
-            // Configurar el clic del botón de eliminación
-            itemView.setOnClickListener {
-                val position = adapterPosition
-                if (position != RecyclerView.NO_POSITION) {
-                    comments.removeAt(position)
-                    notifyItemRemoved(position)
-                }
-            }
         }
+    }
+
+    fun addComment(comment: Comment) {
+        comments.add(comment)
+        notifyItemInserted(comments.size - 1)
     }
 }

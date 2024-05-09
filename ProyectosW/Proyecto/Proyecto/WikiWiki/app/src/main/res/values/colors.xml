@@ -16,5 +16,14 @@
     <color name="teal_300">#FFC107</color>
     <color name="teal">#58CABF</color>
 
+    <color name="selectedColor">#CCCCCC</color>
+    <color name="transparent">#00000000</color>
+
+
+
+    <color name="customTextColor">#FF0000</color>
+    <color name="customTitleColor">#00FF00</color>
+    <color name="customButtonTextColor">#0000FF</color>
+    <color name="tarjetacolor">#8800FF</color>
 
 </resources>

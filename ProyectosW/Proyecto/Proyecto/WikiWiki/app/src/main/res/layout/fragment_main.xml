@@ -3,64 +3,85 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/clMain"
+
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".MainActivity"
+    android:id="@+id/toolbar"
+    >
 
-    <TextView
-        android:id="@+id/welcomeText"
+
+
+    <ImageView
+
+        android:id="@+id/imageView1"
         android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:text="¡Bienvenido a WikiWorld!"
-        android:textSize="40sp"
-        android:textStyle="bold"
-        android:fontFamily="Letras"
-        app:layout_constraintDimensionRatio="2:1"
-        app:layout_constraintBottom_toTopOf="@+id/imageView"
+        android:layout_height="150dp"
+        android:src="@drawable/w1"
+        android:scaleType="centerCrop"
+        app:layout_constraintDimensionRatio="16:9"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginBottom="16dp"/>
+        app:layout_constraintBottom_toTopOf="@id/imageView2"
+        android:layout_marginTop="55dp"/>
+
 
     <ImageView
-        android:id="@+id/imageView"
+        android:id="@+id/imageView2"
         android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:src="@drawable/wikis"
-        android:scaleType="centerInside"
-        app:layout_constraintDimensionRatio="4:2"
-        app:layout_constraintBottom_toTopOf="@+id/etName"
+        android:layout_height="150dp"
+        android:src="@drawable/w2"
+        android:scaleType="centerCrop"
+        app:layout_constraintDimensionRatio="16:9"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/welcomeText"
+        app:layout_constraintTop_toBottomOf="@id/imageView1"
+        app:layout_constraintBottom_toTopOf="@id/imageView3"
+        android:layout_marginTop="16dp"
         android:layout_marginBottom="16dp"/>
 
-    <EditText
-        android:id="@+id/etName"
+
+    <ImageView
+        android:id="@+id/imageView3"
         android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:contentDescription="Ingrese su nombre aquí"
-        android:textSize="44sp"
-        android:inputType="none"
-        android:focusable="false"
-        android:focusableInTouchMode="false"
-        app:layout_constraintDimensionRatio="2:1"
-        app:layout_constraintBottom_toTopOf="@+id/btnGoToCredit"
+        android:layout_height="150dp"
+        android:src="@drawable/w3"
+        android:scaleType="centerCrop"
+        app:layout_constraintDimensionRatio="16:9"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView"
+        app:layout_constraintTop_toBottomOf="@id/imageView2"
+        app:layout_constraintBottom_toTopOf="@id/imageView4"
+        android:layout_marginTop="16dp"
         android:layout_marginBottom="16dp"/>
+
+
+    <ImageView
+        android:id="@+id/imageView4"
+        android:layout_width="0dp"
+        android:layout_height="150dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="16dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/w4"
+        app:layout_constraintBottom_toTopOf="@id/btnGoToCredit"
+        app:layout_constraintDimensionRatio="16:9"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/imageView3" />
 
     <Button
+        style="@style/CustomButtonStyle"
+        android:fontFamily="letras"
         android:id="@+id/btnGoToCredit"
         android:layout_width="200dp"
         android:layout_height="54dp"
-        android:layout_marginBottom="16dp"
-        android:text="Iniciar Sesión"
+        android:text="Menú"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintDimensionRatio="2:1"
+        app:layout_constraintDimensionRatio="4:1"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginBottom="2dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
